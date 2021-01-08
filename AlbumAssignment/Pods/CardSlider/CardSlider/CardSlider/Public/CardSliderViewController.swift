@@ -1,6 +1,5 @@
 
 import UIKit
-
 /// Model for a card.
 public protocol CardSliderItem {
 	/// The image for the card.
@@ -259,7 +258,7 @@ extension CardSliderViewController: UICollectionViewDelegate, UICollectionViewDa
 	public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 		guard let cell = cell as? CardSliderCell else { return }
 		let item = dataSource.item(for: dataSource.numberOfItems() - indexPath.item - 1)
-		cell.imageView.image = item.image
+        cell.imageView.image = item.image
 	}
 	
 	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -27,7 +27,6 @@ class ApiManager {
            AF.request( BASE_URL+PHOTOS_PATH, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 199..<300).responseDecodable { (response: DataResponse<[PhotosModel], AFError>) in
                switch response.result{
                case .success(let response):
-                
                    completion(response, nil)
                case .failure(let error):
                    print("There is an error with get Photos \(error.localizedDescription)")

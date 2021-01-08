@@ -36,21 +36,21 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1bv-pm-gaa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="172" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="172" height="110"/>
                                                     <color key="backgroundColor" red="0.039215686270000001" green="0.094117647060000004" blue="0.24313725489999999" alpha="0.30193155669999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="172" id="iFA-xb-R0g"/>
-                                                        <constraint firstAttribute="height" constant="100" id="mnv-eb-PMp"/>
+                                                        <constraint firstAttribute="height" constant="110" id="mnv-eb-PMp"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Descrption" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QV-SD-YX8">
-                                                    <rect key="frame" x="12" y="116" width="144" height="11.5"/>
+                                                    <rect key="frame" x="12" y="126" width="144" height="11.5"/>
                                                     <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Album title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fl7-C2-3mA">
-                                                    <rect key="frame" x="12" y="104" width="57" height="12"/>
+                                                    <rect key="frame" x="12" y="114" width="57" height="12"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

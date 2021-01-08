@@ -17,8 +17,11 @@ class AlbumCell: UICollectionViewCell {
         self.albumTiltleLabel.text = albumTitle
         self.albumImageView.kf.indicatorType = .activity
         let encodeUrl = (albumImageUrl).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-            let url = URL(string: encodeUrl!)
-            self.albumImageView.kf.setImage(with: url)
+        let url = URL(string: encodeUrl!)
+        self.layoutIfNeeded()
+        self.albumImageView.kf.setImage(with: url)
+        
+        
     }
 
     

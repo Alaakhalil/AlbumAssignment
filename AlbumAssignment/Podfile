@@ -8,6 +8,8 @@ target 'AlbumAssignment' do
  pod 'Alamofire'
  pod 'Kingfisher'
  pod 'CardSlider'
+
+
   # Pods for AlbumAssignment
 
   target 'AlbumAssignmentTests' do
