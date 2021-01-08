@@ -19,7 +19,6 @@ class AlbumsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getAlbums()
-        
     }
     
     // Getting Albums`s Data From Api
@@ -32,12 +31,11 @@ class AlbumsViewController: UIViewController {
                 }
                 self.saveAlbumPhoto()
             }
-            
         }
     }
     // save an image for album
     func saveAlbumPhoto(){
-            DispatchQueue.main.async {
+        DispatchQueue.main.async {
             ApiManager.shared.getAllPhotos {(response, erorr) in
                 if erorr == nil{
                     self.photosData = response
@@ -54,9 +52,7 @@ class AlbumsViewController: UIViewController {
                 self.albumCollectionView.reloadData()
             }
         }
-       
     }
-    
 }
 
 // MARK: - Collection View
@@ -71,10 +67,8 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
         let cell = albumCollectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath) as! AlbumCell
         let index = indexPath.row
         let imageUrl = self.albumImageDict[albumsData[index].id!]
-        print(self.albumImageDict)
         cell.updateCell(albumTitle: albumsData[index].title ?? " ", albumImageUrl: imageUrl ?? " " )
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -83,29 +77,21 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
             if erorr == nil{
                 self.photosData = response
                 for item in self.photosData {
-                    let photo = UIImageView()
-                    let img = UIImage()
-                    photo.kf.indicatorType = .activity
-                    let encodeUrl = (item.url)!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-                    let url = URL(string: encodeUrl!)
-                    photo.kf.setImage(with: url)
-                    self.data.append(CardItem(image: UIImage(systemName: "bookmark")!,rating: nil, title: item.title!, subtitle: nil, description: nil))
+                    let photo = self.getImage(from: item.url!)
+                    self.data.append(CardItem(image: photo,rating: nil, title: item.title!, subtitle: nil, description: nil))
                 }
                 let cardSlider = CardSliderViewController.with(dataSource: self)
                 cardSlider.title = "Album \(String(describing: albumsData[index].id!))"
                 present(cardSlider, animated: true, completion: nil)
             }
         }
-   
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
         let height = collectionView.frame.height
         return CGSize(width: (width/2 - 6), height: height/4 - 6)
-        
     }
- 
 }
 // MARK: - Card Slider
 
@@ -113,11 +99,21 @@ extension AlbumsViewController: CardSliderDataSource{
     func item(for index: Int) -> CardSliderItem {
         
         return data[index]
-        
     }
     
     func numberOfItems() -> Int {
         return photosData.count
+    }
+    func getImage(from url: String) -> UIImage {
+        guard let url = URL(string: url) else { return UIImage() }
+        do{
+            let imageData: Data = try Data(contentsOf: url)
+            guard let image = UIImage(data: imageData) else { return UIImage() }
+            return image
+        }catch{
+            print("Unable to load data: \(error)")
+        }
+        return UIImage()
     }
 }
 
