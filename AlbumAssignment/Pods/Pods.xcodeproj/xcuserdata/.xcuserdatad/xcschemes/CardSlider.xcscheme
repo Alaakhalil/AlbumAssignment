@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FB7BDE33D1D4A883FA60BDFF35281695"
-               BlueprintName = "Pods-AlbumAssignment"
+               BlueprintIdentifier = "15CABA4D47F20FEC70DE5DD1B8574980"
+               BlueprintName = "CardSlider"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Pods-AlbumAssignment.framework">
+               BuildableName = "CardSlider.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

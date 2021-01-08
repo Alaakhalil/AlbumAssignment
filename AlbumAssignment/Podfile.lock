@@ -1,22 +1,26 @@
 PODS:
   - Alamofire (5.2.2)
+  - CardSlider (0.1.0)
   - Kingfisher (5.15.6):
     - Kingfisher/Core (= 5.15.6)
   - Kingfisher/Core (5.15.6)
 
 DEPENDENCIES:
   - Alamofire
+  - CardSlider
   - Kingfisher
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - CardSlider
     - Kingfisher
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  CardSlider: 0a8f5f17f5a76701771794b07fdaeddc512358c8
   Kingfisher: b3554e7bf6106115b44e8795300bad580ef2fdc7
 
-PODFILE CHECKSUM: 7c42041f33047bedbe86f9f82c04aa120208ea0d
+PODFILE CHECKSUM: 77d4d2a0c008bbce03de9d33bc1adea1a65416af
 
 COCOAPODS: 1.5.2
