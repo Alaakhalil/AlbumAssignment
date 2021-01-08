@@ -6,6 +6,7 @@ target 'AlbumAssignment' do
   use_frameworks!
 
  pod 'Alamofire'
+ pod 'Kingfisher'
   # Pods for AlbumAssignment
 
   target 'AlbumAssignmentTests' do
