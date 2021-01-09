@@ -14,7 +14,6 @@ class AlbumsViewController: UIViewController{
     
     var albumsData = [AlbumsModel]()
     var photosData = [PhotosModel]()
-    
     var photoOfAlbumsDict = [Int:String]()
     var data = [CardItem]()
     
@@ -23,7 +22,7 @@ class AlbumsViewController: UIViewController{
         self.getAlbums()
     }
     
-    // Getting Albums`s Data From Api
+    // Getting Albums`s Data From API
     func getAlbums(){
         DispatchQueue.main.async {
             ApiManager.shared.getAlbums {(response, error) in
@@ -34,7 +33,6 @@ class AlbumsViewController: UIViewController{
             }
         }
     }
-    
     
     // Get the first photo of each album and
     // save it as a value of album id
@@ -87,7 +85,6 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func getPhotosOfAlbum(albumId: Int){
-        
         ApiManager.shared.getPhotosOfAlbum(albumId: albumId) { [self] (response, erorr) in
             if erorr == nil{
                 self.data.removeAll()

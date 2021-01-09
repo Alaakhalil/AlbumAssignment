@@ -29,13 +29,10 @@ class GradientView: UIView {
         gradientLayer.frame = self.bounds
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
-
 }
 
-
 @IBDesignable extension UIView{
-
+    
     @IBInspectable var borderWidth: CGFloat {
         set {
             layer.borderWidth = newValue
@@ -62,5 +59,4 @@ class GradientView: UIView {
             return layer.cornerRadius
         }
     }
-    
 }

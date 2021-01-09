@@ -9,8 +9,8 @@ import UIKit
 import Kingfisher
 
 class AlbumCell: UICollectionViewCell {
-    @IBOutlet weak var albumImageView: UIImageView!
     
+    @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var albumTiltleLabel: UILabel!
     
     func updateCell(albumTitle: String,albumImageUrl: String){
@@ -20,9 +20,5 @@ class AlbumCell: UICollectionViewCell {
         let url = URL(string: encodeUrl!)
         self.layoutIfNeeded()
         self.albumImageView.kf.setImage(with: url)
-        
-        
     }
-
-    
 }

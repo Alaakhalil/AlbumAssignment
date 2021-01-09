@@ -11,12 +11,11 @@ class AlbumsModel : Codable {
     var userId : Int?
     var id : Int?
     var title : String?
-
+    
     enum CodingKeys: String, CodingKey {
-
+        
         case userId = "userId"
         case id = "id"
         case title = "title"
     }
-
 }

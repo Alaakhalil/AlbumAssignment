@@ -16,12 +16,11 @@ struct PhotosModel : Codable {
     let thumbnailUrl : String?
 
     enum CodingKeys: String, CodingKey {
-
+        
         case albumId = "albumId"
         case id = "id"
         case title = "title"
         case url = "url"
         case thumbnailUrl = "thumbnailUrl"
     }
-
 }
