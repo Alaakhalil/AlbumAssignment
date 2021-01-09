@@ -11,6 +11,7 @@ import Alamofire
 class ApiManager {
  
     static let shared = ApiManager()
+    
     func getAlbums(completion: @escaping (_ response:  [AlbumsModel], _ error: String?) -> Void)-> Void{
         AF.request(BASE_URL+ALBUMS_PATH, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 199..<300).responseDecodable { (response: DataResponse<[AlbumsModel], AFError>) in
             switch response.result{
@@ -34,8 +35,9 @@ class ApiManager {
                }
            }
        }
+    
     func getPhotosOfAlbum(albumId: Int, completion: @escaping (_ response: [PhotosModel], _ error: String?) -> Void)-> Void{
-        AF.request( "https://jsonplaceholder.typicode.com/albums/\(albumId)/photos", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 199..<300).responseDecodable { (response: DataResponse<[PhotosModel], AFError>) in
+        AF.request( "\(BASE_URL)\(ALBUMS_PATH)/\(albumId)/\(PHOTOS_PATH)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 199..<300).responseDecodable { (response: DataResponse<[PhotosModel], AFError>) in
                switch response.result{
                case .success(let response):
                 

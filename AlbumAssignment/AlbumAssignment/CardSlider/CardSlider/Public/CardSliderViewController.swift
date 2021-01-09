@@ -1,5 +1,6 @@
 
 import UIKit
+
 /// Model for a card.
 public protocol CardSliderItem {
 	/// The image for the card.
@@ -46,10 +47,7 @@ open class CardSliderViewController: UIViewController, UIScrollViewDelegate {
 	private weak var openCardCell: UICollectionViewCell?
 	private var animator: UIViewPropertyAnimator?
 	private let cellID = "CardCell"
-    @IBAction func backPressedButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+	
 	
 	/// Instantiate CardSliderViewController.
 	///
@@ -258,7 +256,7 @@ extension CardSliderViewController: UICollectionViewDelegate, UICollectionViewDa
 	public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 		guard let cell = cell as? CardSliderCell else { return }
 		let item = dataSource.item(for: dataSource.numberOfItems() - indexPath.item - 1)
-        cell.imageView.image = item.image
+		cell.imageView.image = item.image
 	}
 	
 	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -268,7 +266,7 @@ extension CardSliderViewController: UICollectionViewDelegate, UICollectionViewDa
 			return
 		}
 		
-		//showCardDescription(for: indexPath)
+		showCardDescription(for: indexPath)
 	}
 }
 

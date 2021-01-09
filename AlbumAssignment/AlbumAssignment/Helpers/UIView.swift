@@ -54,7 +54,7 @@ class GradientView: UIView {
             return UIColor(cgColor: color)
         }
     }
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable var _cornerRadius: CGFloat {
         set {
             layer.cornerRadius = newValue
         }
