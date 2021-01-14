@@ -223,7 +223,13 @@ open class CardSliderViewController: UIViewController, UIScrollViewDelegate {
     
 	// back to albums
     @IBAction func dismissPressedButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.animator?.pauseAnimation()
+                self.animator?.stopAnimation(true)
+                self.animator?.finishAnimation(at: .current)
+            }
+        }
     }
     // MARK: - View Controller
 	
