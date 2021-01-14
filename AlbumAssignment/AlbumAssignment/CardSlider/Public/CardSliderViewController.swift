@@ -1,10 +1,12 @@
 
 import UIKit
-
+import Kingfisher
 /// Model for a card.
 public protocol CardSliderItem {
+    /// The URL for the image
+    var url: String{ get }
 	/// The image for the card.
-	var image: UIImage { get }
+	var image: UIImage? { get }
 	
 	/// Rating from 0 to 5. If set to nil, rating view will not be displayed for the card.
 	var rating: Int? { get }
@@ -256,18 +258,12 @@ extension CardSliderViewController: UICollectionViewDelegate, UICollectionViewDa
 	public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 		guard let cell = cell as? CardSliderCell else { return }
 		let item = dataSource.item(for: dataSource.numberOfItems() - indexPath.item - 1)
-		cell.imageView.image = item.image
+		//cell.imageView.image = item.image
+        let url = URL(string: item.url)
+        cell.imageView.kf.setImage(with: url)
 	}
 	
-	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		collectionView.deselectItem(at: indexPath, animated: true)
-		if CGFloat(indexPath.item) != collectionView.contentOffset.x / collectionView.bounds.width {
-			collectionView.setContentOffset(CGPoint(x: collectionView.bounds.width * CGFloat(indexPath.item), y: 0), animated: true)
-			return
-		}
-		
-		showCardDescription(for: indexPath)
-	}
+
 }
 
 // MARK: - CardsLayoutDelegate
