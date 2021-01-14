@@ -81,7 +81,7 @@ extension AlbumsViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
         let height = collectionView.frame.height
-        return CGSize(width: (width/2 - 6), height: height/4 - 6)
+        return CGSize(width: (width/2 - 6), height: height/3.8 - 6)
     }
     
     func getPhotosOfAlbum(albumId: Int){

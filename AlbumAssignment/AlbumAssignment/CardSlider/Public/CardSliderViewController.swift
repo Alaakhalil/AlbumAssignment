@@ -220,8 +220,12 @@ open class CardSliderViewController: UIViewController, UIScrollViewDelegate {
 		animator?.startAnimation()
 		statusbarStyle = .default
 	}
-	
-	// MARK: - View Controller
+    
+	// back to albums
+    @IBAction func dismissPressedButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    // MARK: - View Controller
 	
 	override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
 		return .portrait
@@ -272,8 +276,7 @@ extension CardSliderViewController: CardsLayoutDelegate {
 	func transition(between currentIndex: Int, and nextIndex: Int, progress: CGFloat) {
 		let currentItem = dataSource.item(for: dataSource.numberOfItems() - currentIndex - 1)
 		let nextItem = dataSource.item(for: dataSource.numberOfItems() - nextIndex - 1)
-		
-		ratingView.rating = (progress > 0.5 ? nextItem : currentItem).rating
+		//ratingView.rating = (progress > 0.5 ? nextItem : currentItem).rating
 		let currentTitle = CardTitle(title: currentItem.title, subtitle: currentItem.subtitle)
 		let nextTitle = CardTitle(title: nextItem.title, subtitle: nextItem.subtitle)
 		cardTitleView.transition(between: currentTitle, secondTitle: nextTitle, progress: progress)
